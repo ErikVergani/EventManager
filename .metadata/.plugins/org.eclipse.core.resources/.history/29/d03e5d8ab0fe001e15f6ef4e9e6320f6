@@ -1,5 +1,0 @@
-spring.application.name=userApi
-api.user=api
-api.password=api
-user.login=ev
-user.pass=ev123

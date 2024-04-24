@@ -1,4 +1,0 @@
-spring.application.name=userApi
-
-server.port=8081
-server.error.include-message=always
