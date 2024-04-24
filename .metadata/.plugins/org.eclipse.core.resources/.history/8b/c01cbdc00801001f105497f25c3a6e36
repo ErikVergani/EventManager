@@ -1,0 +1,22 @@
+/**
+ * Filename:    LogsService.java
+ *
+ * Description: Implementation of the LogsService class.
+ *
+ * Revision:    22 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.services;
+
+
+/**
+ * @author ev
+ */
+public class LogsService
+{
+    
+}

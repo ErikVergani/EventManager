@@ -1,0 +1,26 @@
+/**
+ * Filename:    HttpClientErrorException.java
+ *
+ * Description: Implementation of the HttpClientErrorException class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.exception;
+
+import com.univates.api.records.response.ErrorRecord;
+
+/**
+ * @author ev
+ */
+public class HttpClientErrorException extends RuntimeException
+{
+    public HttpClientErrorException( ErrorRecord message )
+    {
+        super( message.message() );
+    }
+}

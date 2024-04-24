@@ -1,0 +1,34 @@
+/**
+ * Filename:    UnauthorizedExcepitionHandler.java
+ *
+ * Description: Implementation of the UnauthorizedExcepitionHandler class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.handlers;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.univates.api.exception.UnauthorizedException;
+import com.univates.api.records.response.ErrorRecord;
+
+/**
+ * @author ev
+ */
+@ControllerAdvice
+public class UnauthorizedExcepitionHandler
+{
+    @ResponseBody
+    @ExceptionHandler( UnauthorizedException.class )
+    public ErrorRecord handler( UnauthorizedException e )
+    {
+        return new ErrorRecord( e.getMessage(), e.getStatusCode() );
+    }
+}

@@ -1,0 +1,34 @@
+/**
+ * Filename:    CustomResponseErrorHandler.java
+ *
+ * Description: Implementation of the CustomResponseErrorHandler class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.handlers;
+
+import java.io.IOException;
+
+import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.web.client.DefaultResponseErrorHandler;
+
+/**
+ * @author ev
+ */
+public class CustomResponseErrorHandler extends DefaultResponseErrorHandler
+{
+    /**
+     * handleError
+     *
+     */
+    @Override
+    public void handleError( ClientHttpResponse response ) throws IOException
+    {
+        super.handleError( response );
+    }
+}

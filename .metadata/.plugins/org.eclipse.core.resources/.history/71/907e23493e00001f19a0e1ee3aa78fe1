@@ -1,0 +1,26 @@
+/**
+
+ * Filename:    UnauthorizedExceptionHandler.java
+ *
+ * Description: Implementation of the UnauthorizedExceptionHandler class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.exception;
+
+
+/**
+ * @author ev
+ */
+public class UnauthorizedException extends RuntimeException
+{
+    public UnauthorizedException( String message )
+    {
+        super(  message );
+    }
+}

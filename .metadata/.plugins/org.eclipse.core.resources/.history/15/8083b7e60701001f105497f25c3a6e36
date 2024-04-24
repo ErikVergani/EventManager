@@ -1,0 +1,22 @@
+/**
+ * Filename:    Log.java
+ *
+ * Description: Implementation of the Log class.
+ *
+ * Revision:    22 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.models;
+
+
+/**
+ * @author ev
+ */
+public class Log
+{
+    
+}

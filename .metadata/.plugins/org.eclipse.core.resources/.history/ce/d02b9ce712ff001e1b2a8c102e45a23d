@@ -1,0 +1,36 @@
+/**
+ * Filename:    Auth.java
+ *
+ * Description: Implementation of the Auth class.
+ *
+ * Revision:    19 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author ev
+ */
+@Service
+public class Auth
+{
+    public static final String API_USER = "$2a$10$tFQ6X479n/kHAPl4usBu5OZE3IvvhWCoGvyIFpr9wo.4oksdY1xfK";
+    public static final String API_PASS = "$2a$10$t6YcbLIsTts31I7InIuUKuBdNphAofglOgg0LS6gLc2hrEIkJwuD";
+    
+    @Autowired
+    private static PasswordEncoder encoder;
+    
+    public static boolean authenticate( String user, String password )
+    {
+        return ( encoder.matches( user, API_USER ) && encoder.matches( password, API_PASS ) );
+    }
+}

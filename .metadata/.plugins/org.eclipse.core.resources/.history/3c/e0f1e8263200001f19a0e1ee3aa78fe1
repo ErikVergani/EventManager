@@ -1,0 +1,33 @@
+/**
+ * Filename:    NotFoundExceptionHandler.java
+ *
+ * Description: Implementation of the NotFoundExceptionHandler class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.handlers;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.univates.api.exception.NotFoundException;
+
+/**
+ * @author ev
+ */
+@ControllerAdvice
+public class NotFoundExceptionHandler
+{
+    @ExceptionHandler( NotFoundException.class )
+    public ResponseEntity<String> handler( NotFoundException e )
+    {
+        return ResponseEntity.status( HttpStatus.NOT_FOUND ).body( e.getMessage() );
+    }
+}

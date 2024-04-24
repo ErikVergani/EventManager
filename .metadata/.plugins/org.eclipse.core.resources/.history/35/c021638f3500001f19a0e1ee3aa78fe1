@@ -1,0 +1,52 @@
+/**
+ * Filename:    HttpClientErrorException.java
+ *
+ * Description: Implementation of the HttpClientErrorException class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.client.HttpClientErrorException;
+
+/**
+ * @author ev
+ */
+public class ApiResponseException extends RuntimeException
+{
+    private HttpStatus statusCode;
+    
+    public ApiResponseException( HttpStatus code, String message )
+    {
+       super( message );
+       this.statusCode =  code;
+    }
+    
+    /**
+     * getStatusCode
+     *
+     * @return statusCode HttpStatus
+     */
+    public HttpStatus getStatusCode()
+    {
+        return statusCode;
+    }
+    
+    /**
+     * setStatusCode
+     *
+     * @param statusCode HttpStatus
+     */
+    public void setStatusCode( HttpStatus statusCode )
+    {
+        this.statusCode = statusCode;
+    }
+    
+    
+}

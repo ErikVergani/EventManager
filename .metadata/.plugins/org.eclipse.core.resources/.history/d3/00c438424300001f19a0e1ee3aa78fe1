@@ -1,0 +1,22 @@
+/**
+ * Filename:    RegistrationController.java
+ *
+ * Description: Implementation of the RegistrationController class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.controllers;
+
+
+/**
+ * @author ev
+ */
+public class RegistrationController
+{
+    
+}

@@ -1,0 +1,9 @@
+spring.application.name=userApi
+
+server.port=8081
+
+api.user=api
+api.password=api
+
+user.login=$2a$10$r0rcI1qKAr9qs0ypvKaUzeY4vBnrmIptbo90Ihdyu5umvNtG5HjB2
+user.pass=$2a$10$zL4Xe8xm1kLeXjdgu2gV4.bkG7JFNMc.lzgY1d6O2yXuAkk7Oefs6

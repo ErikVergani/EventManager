@@ -1,0 +1,24 @@
+/**
+ * Filename:    UserController.java
+ *
+ * Description: Implementation of the UserController class.
+ *
+ * Revision:    19 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * @author ev
+ */
+@Controller
+public class UserController
+{
+    
+}

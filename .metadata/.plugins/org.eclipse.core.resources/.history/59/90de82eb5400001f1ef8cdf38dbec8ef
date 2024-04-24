@@ -1,0 +1,22 @@
+# Application settings
+spring.application.name=api
+api.user=api
+api.password=api
+
+# DataSource settings
+spring.datasource.url=jdbc:mysql://localhost:3306/api?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=root
+
+# JPA settings
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+spring.jpa.show-sql:true
+
+#email
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=efvergani@gmail.com
+spring.mail.password=annl xfez iojh jpwl
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true

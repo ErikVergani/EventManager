@@ -1,0 +1,47 @@
+/**
+ * Filename:    InternalFilter.java
+ *
+ * Description: Implementation of the InternalFilter class.
+ *
+ * Revision:    24 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.security;
+
+import java.io.IOException;
+
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ * @author ev
+ */
+@Component
+@WebFilter(urlPatterns = "/*")
+@Order(1) // Define a ordem do filtro
+public class InternalFilter extends OncePerRequestFilter
+{
+
+    /**
+     * doFilterInternal
+     *
+     */
+    @Override
+    protected void doFilterInternal( HttpServletRequest request, HttpServletResponse response, FilterChain filterChain )
+            throws ServletException, IOException
+    {
+        filterChain.doFilter( request, response );
+    }
+    
+}

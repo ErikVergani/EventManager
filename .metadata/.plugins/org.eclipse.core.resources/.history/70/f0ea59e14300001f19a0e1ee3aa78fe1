@@ -1,0 +1,56 @@
+/**
+ * Filename:    RegistrationService.java
+ *
+ * Description: Implementation of the RegistrationService class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.services;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.univates.api.records.request.RegistrationRecord;
+
+import jakarta.validation.Valid;
+
+/**
+ * @author ev
+ */
+public class RegistrationService
+{
+
+    /**
+     * addRegistration
+     *
+     */
+    public ResponseEntity <RegistrationRecord> addRegistration( @Valid RegistrationRecord rr )
+    {
+        return null;
+    }
+
+    /**
+     * getRegistrations
+     *
+     */
+    public List<RegistrationRecord> getRegistrations( Integer userId )
+    {
+        return null;
+    }
+
+    /**
+     * checkIn
+     *
+     */
+    public ResponseEntity <Object> checkIn( Integer eventId, Integer userId )
+    {
+        return null;
+    }
+    
+}

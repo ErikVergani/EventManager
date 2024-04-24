@@ -1,0 +1,27 @@
+/**
+ * Filename:    NotFoundException.java
+ *
+ * Description: Implementation of the NotFoundException class.
+ *
+ * Revision:    15 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.client.HttpClientErrorException;
+
+/**
+ * @author ev
+ */
+public class NotFoundException extends HttpClientErrorException
+{
+    public NotFoundException( String message )
+    {
+        super( HttpStatus.NOT_FOUND ,message );
+    }
+}

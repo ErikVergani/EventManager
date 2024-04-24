@@ -1,0 +1,22 @@
+/**
+ * Filename:    UserService.java
+ *
+ * Description: Implementation of the UserService class.
+ *
+ * Revision:    19 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.services;
+
+
+/**
+ * @author ev
+ */
+public class UserService
+{
+    
+}

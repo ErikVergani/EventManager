@@ -1,0 +1,699 @@
+{
+	"info": {
+		"_postman_id": "aaabad73-d6ae-42b5-a81c-aa1a5700a181",
+		"name": "Arq software",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26178500"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "addUser",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "login",
+										"value": "api",
+										"type": "text"
+									},
+									{
+										"key": "pass",
+										"value": "api123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"ev\",\r\n    \"password\": \"ev\",\r\n    \"name\": \"Erik Vergani\",\r\n    \"email\": \"erik.vergani@universo.univates.br\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateUser",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"ev\",\r\n    \"password\": \"ev\",\r\n    \"name\": \"Erik Vergani\",\r\n    \"email\": \"erik.vergani@universo.univates.br\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AuthUser",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "login",
+										"value": "api",
+										"type": "text"
+									},
+									{
+										"key": "pass",
+										"value": "api123",
+										"type": "text"
+									},
+									{
+										"key": "userLogin",
+										"value": "ev",
+										"type": "text"
+									},
+									{
+										"key": "userPass",
+										"value": "ev",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/auth",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Event",
+					"item": [
+						{
+							"name": "addEvent",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "login",
+										"value": "api",
+										"type": "text"
+									},
+									{
+										"key": "pass",
+										"value": "api123",
+										"type": "text"
+									},
+									{
+										"key": "user",
+										"value": "null",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Lançamento SA10\",\r\n    \"date\": \"2024-04-21T20:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEvents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "api",
+										"type": "text"
+									},
+									{
+										"key": "pass",
+										"value": "api123",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserEvents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "login",
+										"value": "ev",
+										"type": "text"
+									},
+									{
+										"key": "pass",
+										"value": "api123",
+										"type": "text"
+									},
+									{
+										"key": "loggedUser",
+										"value": "ev",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/events/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"events",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateEvent",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Evento dos Devs\",\r\n    \"date\": \"2024-04-15T20:59:59\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/events/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"events",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Registration",
+					"item": [
+						{
+							"name": "registerEventParticipant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":1,\r\n    \"eventId\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/registration",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CheckinParticipant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/registration/checkin?eventId=1&userId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"registration",
+										"checkin"
+									],
+									"query": [
+										{
+											"key": "eventId",
+											"value": "1"
+										},
+										{
+											"key": "userId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancelRegister",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/registration/cancel?eventId=1&userId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"registration",
+										"cancel"
+									],
+									"query": [
+										{
+											"key": "eventId",
+											"value": "1"
+										},
+										{
+											"key": "userId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "userApi",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"ev\",\r\n    \"password\": \"ev\",\r\n    \"name\": \"Erik Vergani\",\r\n    \"email\": \"erik.vergani@universo.univates.br\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/user/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "eventApi",
+			"item": [
+				{
+					"name": "addEvent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lançamento SA10\",\r\n    \"date\": \"2024-10-20T20:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserRegisteredEvents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8082/event/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"event",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registrationApi",
+			"item": [
+				{
+					"name": "registerEventParticipant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userLogin\":\"ev\",\r\n    \"eventId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/registration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckinParticipant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/registration/checkin?eventId=1&userId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"registration",
+								"checkin"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelRegister",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/registration/cancel?eventId=1&userId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"registration",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "1"
+								},
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserRegistrations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "login",
+								"value": "ev",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "ev",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/registration/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"registration",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

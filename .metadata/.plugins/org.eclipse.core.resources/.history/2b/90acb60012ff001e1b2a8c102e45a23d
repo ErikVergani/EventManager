@@ -1,0 +1,24 @@
+/**
+ * Filename:    ApiConfig.java
+ *
+ * Description: Implementation of the ApiConfig class.
+ *
+ * Revision:    20 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.util;
+
+import org.springframework.beans.factory.annotation.Value;
+
+/**
+ * @author ev
+ */
+public class ApiConfig
+{
+    @Value( "${api.url}" )
+    public static String API_URL;
+}

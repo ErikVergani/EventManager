@@ -1,0 +1,46 @@
+/**
+ * Filename:    CustomResponseErrorHandler.java
+ *
+ * Description: Implementation of the CustomResponseErrorHandler class.
+ *
+ * Revision:    21 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.handlers;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.client.ResponseErrorHandler;
+
+import com.univates.api.exception.UnauthorizedException;
+
+/**
+ * @author ev
+ */
+public class CustomResponseErrorHandler implements ResponseErrorHandler
+{
+    
+    @Override
+    public boolean hasError( ClientHttpResponse response ) throws IOException
+    {
+        return response.getStatusCode().isError();
+    }
+    
+    @Override
+    public void handleError( ClientHttpResponse response ) throws IOException
+    {
+        String responseBody = StreamUtils.copyToString( response.getBody(), StandardCharsets.UTF_8 );
+        HttpStatusCode statusCode = response.getStatusCode();
+        
+        throw new UnauthorizedException( responseBody );
+    }
+}

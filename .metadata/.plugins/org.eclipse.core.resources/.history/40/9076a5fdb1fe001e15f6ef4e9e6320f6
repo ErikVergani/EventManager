@@ -1,0 +1,9 @@
+spring.application.name=userApi
+
+server.port=8081
+
+api.user=api
+api.password=api
+
+user.login=ev
+user.pass=ev123

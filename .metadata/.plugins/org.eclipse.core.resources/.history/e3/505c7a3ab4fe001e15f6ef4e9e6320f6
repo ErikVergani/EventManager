@@ -1,0 +1,22 @@
+/**
+ * Filename:    RequestProvider.java
+ *
+ * Description: Implementation of the RequestProvider class.
+ *
+ * Revision:    19 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.util;
+
+
+/**
+ * @author ev
+ */
+public class RestTemplate
+{
+    
+}

@@ -1,0 +1,23 @@
+/**
+ * Filename:    ApiConfig.java
+ *
+ * Description: Implementation of the ApiConfig class.
+ *
+ * Revision:    20 de abr. de 2024
+ *
+ * Author:      Erik Freire Vergani
+ * EMail:       efvergani@hotmail.com.br
+ *
+ */
+
+package com.univates.api.security;
+
+/**
+ * @author ev
+ */
+public class ApiConfig
+{
+    public static final String API_URL = "http://localhost:8080/api/users";
+    public static final String API_USER = "$2a$10$tFQ6X479n/kHAPl4usBu5OZE3IvvhWCoGvyIFpr9wo.4oksdY1xfK";
+    public static final String API_PASS = "$2a$10$t6YcbLIsTts31I7InIuUKuBdNphAofglOgg0LS6gLc2hrEIkJwuD";
+}
