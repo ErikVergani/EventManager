@@ -45,32 +45,43 @@ public class HttpLogginFilter implements Filter
     @Autowired
     private Authenticator auth;
     
-    /**
-     * doFilter
-     *
-     */
     @Override
     public void doFilter( ServletRequest request, ServletResponse response, FilterChain chain )
             throws IOException, ServletException
     {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-
-        String login = httpServletRequest.getHeader( "login" );
-        String pass = httpServletRequest.getHeader( "pass" );
-        
-        if ( !auth.authenticate( login, pass ) )
-        {
-            throw new UnauthorizedException();
-        }
-        
-        String user = httpServletRequest.getHeader( "user" );
         String url = httpServletRequest.getRequestURL().toString();
         String method = httpServletRequest.getMethod();
         
-        logsService.saveLog( userService.getUserByLogin( user != null && !user.isEmpty() ? user : "anonymous" ), url, method );
+        if ( ignore( url ) )
+        {
+            logsService.saveLog( userService.getUserByLogin( "anonymous" ), url, method );
+            chain.doFilter( httpServletRequest, httpServletResponse );
+        }
+        
+        else
+        {
+
+            String user = httpServletRequest.getHeader( "user" );
+            
+            logsService.saveLog( userService.getUserByLogin( user != null && !user.isEmpty() ? user : "anonymous" ), url, method );
+            
+            String login = httpServletRequest.getHeader( "login" );
+            String pass = httpServletRequest.getHeader( "pass" );
+            
+            if ( !auth.authenticate( login, pass ) )
+            {
+                throw new UnauthorizedException();
+            }
+        
+            chain.doFilter( httpServletRequest, httpServletResponse );
+        }
+    }
     
-        chain.doFilter( httpServletRequest, httpServletResponse );
+    private boolean ignore( String url ) 
+    {
+        return url.contains("swagger") || url.contains("api-docs");
     }
     
 }

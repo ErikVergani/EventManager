@@ -49,10 +49,6 @@ public class RegistrationService
     @Autowired
     private EmailService emailService;
     
-    /**
-     * getRegistrations
-     *
-     */
     public List<RegistrationResponseRecord> getRegistrations( User user )
     {
         List<RegistrationResponseRecord> records = new ArrayList <RegistrationResponseRecord>();
@@ -62,19 +58,11 @@ public class RegistrationService
        return records;
     }
     
-    /**
-     * getRegistration
-     *
-     */
     public Optional <Registration> getRegistration( Integer eventId, Integer userId )
     {
         return registrationRepository.findByEventAndUser( eventService.getEvent( eventId ), userService.getUser( userId ) );
     }
     
-    /**
-     * addRegistration
-     *
-     */
     public ResponseEntity<RegistrationResponseRecord> addRegistration( RegistrationRecord rr )
     {
         User user = userService.getUserByLogin( rr.userLogin() );
@@ -107,10 +95,6 @@ public class RegistrationService
     }
 
 
-    /**
-     * cancelRegistration
-     *
-     */
     public ResponseEntity<RegistrationResponseRecord> cancelRegistration( Integer eventId, Integer userId )
     {
         Optional <Registration> r = getRegistration( eventId, userId );
@@ -135,11 +119,6 @@ public class RegistrationService
         return ResponseEntity.status( HttpStatus.OK ).body( new RegistrationResponseRecord( registration ) );
     }
 
-
-    /**
-     * checkIn
-     *
-     */
     public ResponseEntity<RegistrationResponseRecord> checkIn( Integer eventId, Integer userId )
     {
         Optional <Registration> r =  getRegistration( eventId, userId );

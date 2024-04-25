@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.univates.api.exeptions.UnauthorizedInternalApiException;
 import com.univates.api.records.request.EventRecord;
 import com.univates.api.records.response.EventResponseRecord;
+import com.univates.api.records.response.EventUsersResponseRecord;
 import com.univates.api.services.ApiService;
 import com.univates.api.services.EventService;
 
@@ -96,11 +97,11 @@ public class EventController
                              @ApiResponse ( responseCode = "401", description = "Credenciais do usuário estão incorretas" ),
                              @ApiResponse ( responseCode = "400", description = "Evento/Usuário não encontrado" ),
                            } )
-    public ResponseEntity <List<EventResponseRecord>> getUserEvents(  @RequestHeader String login, @RequestHeader String pass, @PathVariable( value = "id" ) Integer id )
+    public ResponseEntity <EventUsersResponseRecord> getEventUsers(  @RequestHeader String login, @RequestHeader String pass, @PathVariable( value = "id" ) Integer id )
     {
         if ( authenticator.authenticateUser( login, pass ) )
         {
-            return eventService.getUserEvents( id, login );
+            return eventService.getEventUsers( id, login );
         }
            
         throw new UnauthorizedInternalApiException();

@@ -25,7 +25,6 @@ public class RestTemplateConfig
     @Bean
     RestTemplate restTemplate()
     {
-        RestTemplate rt = new RestTemplate();
-        return rt;
+        return new RestTemplate();
     }
 }

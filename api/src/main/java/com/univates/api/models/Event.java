@@ -40,93 +40,43 @@ public class Event
     private List <Registration> registrations;
 
     
-    /**
-     * getId
-     *
-     * @return id Integer
-     */
     public Integer getId()
     {
         return id;
     }
 
-    
-    /**
-     * getName
-     *
-     * @return name String
-     */
     public String getName()
     {
         return name;
     }
 
-    
-    /**
-     * getDate
-     *
-     * @return date LocalDate
-     */
     public LocalDateTime getDate()
     {
         return date;
     }
 
-    
-    /**
-     * getRegistrations
-     *
-     * @return registrations List<Registration>
-     */
     public List <Registration> getRegistrations()
     {
         return registrations;
     }
 
-    
-    /**
-     * setId
-     *
-     * @param id Integer
-     */
     public void setId( Integer id )
     {
         this.id = id;
     }
 
-    
-    /**
-     * setName
-     *
-     * @param name String
-     */
     public void setName( String name )
     {
         this.name = name;
     }
 
-    
-    /**
-     * setDate
-     *
-     * @param date LocalDate
-     */
     public void setDate( LocalDateTime date )
     {
         this.date = date;
     }
 
-    
-    /**
-     * setRegistrations
-     *
-     * @param registrations List<Registration>
-     */
     public void setRegistrations( List <Registration> registrations )
     {
         this.registrations = registrations;
     }
-    
-    
-    
 }

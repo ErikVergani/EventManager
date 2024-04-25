@@ -31,7 +31,6 @@ import org.springframework.web.client.RestTemplate;
 import com.univates.api.exeptions.UnauthorizedException;
 import com.univates.api.records.request.RegistrationRecord;
 import com.univates.api.records.response.RegistrationResponseRecord;
-import com.univates.api.security.ApiConfig;
 
 /**
  * @author ev
@@ -45,14 +44,20 @@ public class ApiService
     @Value("${api.authUrl}")
     private String authUrl;
     
+    @Value( "${api.user}" )
+    private String apiUser;
+    
+    @Value( "${api.pass}" )
+    private String apiPass;
+    
     public RegistrationResponseRecord returnRegistration( RegistrationRecord event, String url, HttpMethod method, String user )
     {
         try
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "user", user );
             
             HttpEntity<RegistrationRecord> requestEntity = new HttpEntity<>( event, headers );
@@ -85,8 +90,8 @@ public class ApiService
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "user", user );
             
             HttpEntity<RegistrationRecord> requestEntity = new HttpEntity<>( headers );
@@ -119,8 +124,8 @@ public class ApiService
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "userLogin", user );
             headers.set( "userPass", pass );
             headers.set( "user", user );

@@ -28,6 +28,7 @@ import com.univates.api.models.Registration;
 import com.univates.api.models.User;
 import com.univates.api.records.request.EventRecord;
 import com.univates.api.records.response.EventResponseRecord;
+import com.univates.api.records.response.EventUsersResponseRecord;
 import com.univates.api.repositories.EventRepository;
 import com.univates.api.repositories.RegistrationRepository;
 
@@ -134,5 +135,26 @@ public class EventService
         eventRepository.findByRegistrationsIn( registrations ).forEach( e -> er.add( new EventResponseRecord( e ) ) );
         
         return ResponseEntity.status( HttpStatus.OK ).body( er );
+    }
+
+    /**
+     * getEventusers
+     *
+     */
+    public ResponseEntity <EventUsersResponseRecord> getEventusers( Integer id )
+    {
+        Optional<Event> op = eventRepository.findById( id );
+        
+        if ( op.isEmpty() )
+        {
+            throw new NotFoundException( "Evento não encontrado" );
+        }
+        
+        Event e = op.get();
+        
+        List<String> usersInfo = new ArrayList <String>();
+        e.getRegistrations().forEach( r -> usersInfo.add( new String ( r.getUser().getId() + ":" + r.getUser().getName() ) ) );
+        
+        return ResponseEntity.status( HttpStatus.OK ).body( new EventUsersResponseRecord( e, usersInfo ) );
     }
 }

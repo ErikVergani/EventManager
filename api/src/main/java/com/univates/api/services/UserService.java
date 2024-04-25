@@ -41,11 +41,6 @@ public class UserService
     @Autowired
     private PasswordEncoder encoder;
     
-    /**
-     * getAll
-     *
-     * @return List<User>
-     */
     public List<User> getAll()
     {
         return userRepository.findAll();
@@ -56,23 +51,11 @@ public class UserService
         return userRepository.findByLogin( login );
     }
     
-    /**
-     * getUser
-     * 
-     * @param id Integer
-     * @return User
-     */
     public User getUser( Integer id )
     {
         return userRepository.findById( id ).orElseThrow( () -> new NotFoundException( "Usuário não encontrado" ) );
     }
     
-    /**
-     * saveUser
-     *
-     * @param userRecord UserRecord
-     * @return ResponseEntity<Object>
-     */
     public ResponseEntity<UserResponseRecord> saveUser( UserRecord userRecord )
     {
         boolean usedLogin = userRepository.existsByLogin( userRecord.login() );
@@ -90,13 +73,6 @@ public class UserService
         return ResponseEntity.status( HttpStatus.CREATED ).body( new UserResponseRecord( user ) );
     }
     
-    /**
-     * saveUser
-     * 
-     * @param id Integer
-     * @param userRecord UserRecord
-     * @return ResponseEntity<UserResponseRecord>
-     */
     public ResponseEntity<UserResponseRecord> saveUser( Integer id, UserRecord userRecord )
     {
         Optional <User> oldUser = userRepository.findById( id );

@@ -19,10 +19,6 @@ import com.univates.api.models.User;
  */
 public record UserResponseRecord( String name, String login, String email )
 {
-    /**
-     * UserResponseRecord
-     *
-     */
     public UserResponseRecord( User user )
     {
         this( user.getName(), user.getLogin(), user.getEmail() );

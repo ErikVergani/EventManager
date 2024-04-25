@@ -22,20 +22,12 @@ import jakarta.persistence.AttributeConverter;
 public class RegistrationStateConverter implements AttributeConverter <RegistrationState, String>
 {
     
-    /**
-     * convertToDatabaseColumn
-     *
-     */
     @Override
     public String convertToDatabaseColumn( RegistrationState attribute )
     {
         return ( attribute == null ) ? null : attribute.name();
     }
     
-    /**
-     * convertToEntityAttribute
-     *
-     */
     @Override
     public RegistrationState convertToEntityAttribute( String dbData )
     {

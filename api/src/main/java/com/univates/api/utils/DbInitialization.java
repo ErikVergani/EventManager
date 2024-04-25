@@ -29,10 +29,6 @@ public class DbInitialization implements CommandLineRunner
     @Autowired
     private UserService userService;
     
-    /**
-     * run
-     *
-     */
     @Override
     public void run( String... args ) throws Exception
     {

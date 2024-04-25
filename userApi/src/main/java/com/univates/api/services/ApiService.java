@@ -28,7 +28,6 @@ import org.springframework.web.client.RestTemplate;
 import com.univates.api.exception.UnauthorizedException;
 import com.univates.api.records.request.UserRecord;
 import com.univates.api.records.response.UserResponseRecord;
-import com.univates.api.security.ApiConfig;
 
 /**
  * @author ev
@@ -42,19 +41,28 @@ public class ApiService
     @Value("${api.authUrl}")
     private String authUrl;
     
+    @Value( "${api.user}" )
+    private String apiUser;
+    
+    @Value( "${api.pass}" )
+    private String apiPass;
+    
+    @Value( "${api.url}" )
+    private String apiUrl;
+    
     public UserResponseRecord callApi( UserRecord user )
     {
         try
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             
             HttpEntity<UserRecord> requestEntity = new HttpEntity<>( user, headers );
             
             ResponseEntity<UserResponseRecord> responseEntity = restTemplate.exchange(
-                                                                                        ApiConfig.API_URL,
+                                                                                        apiUrl,
                                                                                         HttpMethod.POST,
                                                                                         requestEntity,
                                                                                         UserResponseRecord.class
@@ -80,8 +88,8 @@ public class ApiService
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "userLogin", user );
             headers.set( "userPass", pass );
             headers.set( "user", user );
@@ -89,7 +97,7 @@ public class ApiService
             HttpEntity<?> requestEntity = new HttpEntity<>( headers );
             
             ResponseEntity<Boolean> responseEntity = restTemplate.exchange(
-                                                                            authUrl,
+                                                                            apiUrl,
                                                                             HttpMethod.POST,
                                                                             requestEntity,
                                                                             Boolean.class

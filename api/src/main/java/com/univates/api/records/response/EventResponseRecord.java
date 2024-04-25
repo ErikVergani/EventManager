@@ -21,10 +21,6 @@ import com.univates.api.models.Event;
  */
 public record EventResponseRecord( Integer eventId, String eventName, LocalDateTime eventDate )
 {
-    /**
-     * EventResponseRecord
-     *
-     */
     public EventResponseRecord( Event event )
     {
         this( event.getId(), event.getName(), event.getDate() );

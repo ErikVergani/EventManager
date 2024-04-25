@@ -18,15 +18,8 @@ package com.univates.api.exception;
  */
 public class UnauthorizedInternalApiException extends RuntimeException
 {
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
-    /**
-     * UnauthorizedInternalApiException
-     *
-     */
     public UnauthorizedInternalApiException()
     {
         super( "Usuário ou senha inválidos" );

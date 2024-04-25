@@ -31,7 +31,7 @@ import org.springframework.web.client.RestTemplate;
 import com.univates.api.exeptions.UnauthorizedException;
 import com.univates.api.records.request.EventRecord;
 import com.univates.api.records.response.EventResponseRecord;
-import com.univates.api.security.ApiConfig;
+import com.univates.api.records.response.EventUsersResponseRecord;
 
 /**
  * @author ev
@@ -45,14 +45,20 @@ public class ApiService
     @Value("${api.authUrl}")
     private String authUrl;
     
+    @Value( "${api.user}" )
+    private String apiUser;
+    
+    @Value( "${api.pass}" )
+    private String apiPass;
+    
     public EventResponseRecord returnEvent( EventRecord event, String url, HttpMethod method, String user )
     {
         try
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "user", user );
             
             HttpEntity<EventRecord> requestEntity = new HttpEntity<>( event, headers );
@@ -84,20 +90,53 @@ public class ApiService
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "user", user );
             
             HttpEntity<EventRecord> requestEntity = new HttpEntity<>( headers );
             
             ResponseEntity<EventResponseRecord[]> responseEntity = restTemplate.exchange(
+                    url,
+                    method,
+                    requestEntity,
+                    EventResponseRecord[].class
+                    );
+            
+            return Arrays.asList( responseEntity.getBody() );
+        }
+        
+        catch ( HttpClientErrorException.Unauthorized | HttpServerErrorException e )
+        {
+            throw new UnauthorizedException();
+        }
+        
+        catch ( HttpClientErrorException | ResourceAccessException e )
+        {
+            throw e;
+        }
+    }
+    
+    public EventUsersResponseRecord getEventUsers( String url, HttpMethod method, String user )
+    {
+        try
+        {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType( MediaType.APPLICATION_JSON );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
+            headers.set( "user", user );
+            
+            HttpEntity<EventRecord> requestEntity = new HttpEntity<>( headers );
+            
+            ResponseEntity<EventUsersResponseRecord> responseEntity = restTemplate.exchange(
                                                                             url,
                                                                             method,
                                                                             requestEntity,
-                                                                            EventResponseRecord[].class
+                                                                            EventUsersResponseRecord.class
                                                                           );
             
-            return Arrays.asList( responseEntity.getBody() );
+            return responseEntity.getBody();
         }
         
         catch ( HttpClientErrorException.Unauthorized | HttpServerErrorException e )
@@ -117,8 +156,8 @@ public class ApiService
         {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType( MediaType.APPLICATION_JSON );
-            headers.set( "login", ApiConfig.API_USER );
-            headers.set( "pass", ApiConfig.API_PASS );
+            headers.set( "login", apiUser );
+            headers.set( "pass", apiPass );
             headers.set( "userLogin", user );
             headers.set( "userPass", pass );
             headers.set( "user", user );

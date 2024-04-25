@@ -21,6 +21,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.univates.api.exception.NotFoundException;
 import com.univates.api.models.Event;
 import com.univates.api.models.User;
 
@@ -32,6 +33,9 @@ public class EmailService
 {
     @Autowired
     private JavaMailSender sender;
+    
+    @Autowired
+    private UserService userService;
     
     @Value( "${spring.mail.username}" )
     private String from;
@@ -65,6 +69,26 @@ public class EmailService
         
         sendEmail( user.getEmail(), subject, message );
     }
+    
+    
+    public String sendAlertEmail( Integer userId )
+    {
+        User u = userService.getUser( userId );
+        
+        if ( u == null )
+        {
+            throw new NotFoundException( "Usuário não encontrado" );
+        }
+        
+        String subjetct = "Lembrete de eventos!";
+        String message = "Olá " + u.getName() + " estamos passando para lembrar que possuimos diversos"
+                       + " eventos disponíveis para você, acesse nosso site e registre-se no evento de sua preferência, é grátis!";
+        
+        sendEmail( u.getEmail(), subjetct, message );
+        
+        return "Email enviado com sucesso!";
+    }
+    
     
     private void sendEmail( String to, String subject, String message )
     {

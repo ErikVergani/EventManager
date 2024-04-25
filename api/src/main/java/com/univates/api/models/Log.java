@@ -41,11 +41,6 @@ public class Log
     private String method;
     private LocalDateTime dtAccess = LocalDateTime.now();
     
-    
-    /**
-     * Log
-     *
-     */
     public Log( User user, String url, String method )
     {
         this.user = user;
@@ -53,103 +48,51 @@ public class Log
         this.method = method;
     }
 
-    
-    /**
-     * getMethod
-     *
-     * @return method String
-     */
     public String getMethod()
     {
         return method;
     }
     
-    /**
-     * setMethod
-     *
-     * @param method String
-     */
     public void setMethod( String method )
     {
         this.method = method;
     }
 
-    /**
-     * getId
-     *
-     * @return id Integer
-     */
     public Integer getId()
     {
         return id;
     }
 
-    
-    /**
-     * setId
-     *
-     * @param id Integer
-     */
     public void setId( Integer id )
     {
         this.id = id;
     }
 
-    /**
-     * getUser
-     *
-     * @return user User
-     */
     public User getUser()
     {
         return user;
     }
     
-    /**
-     * getUrl
-     *
-     * @return url String
-     */
     public String getUrl()
     {
         return url;
     }
     
-    /**
-     * getDtAccess
-     *
-     * @return dtAccess LocalDateTime
-     */
     public LocalDateTime getDtAccess()
     {
         return dtAccess;
     }
     
-    /**
-     * setUser
-     *
-     * @param user User
-     */
     public void setUser( User user )
     {
         this.user = user;
     }
     
-    /**
-     * setUrl
-     *
-     * @param url String
-     */
     public void setUrl( String url )
     {
         this.url = url;
     }
     
-    /**
-     * setDtAccess
-     *
-     * @param dtAccess LocalDateTime
-     */
     public void setDtAccess( LocalDateTime dtAccess )
     {
         this.dtAccess = dtAccess;

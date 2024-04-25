@@ -18,15 +18,8 @@ package com.univates.api.exception;
  */
 public class UnauthorizedException extends RuntimeException
 {
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
-    /**
-     * UnauthorizedException
-     *
-     */
     public UnauthorizedException()
     {
         super( "Acesso negado!" );

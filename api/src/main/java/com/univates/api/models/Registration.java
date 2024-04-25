@@ -53,113 +53,51 @@ public class Registration
     
     private LocalDateTime registerDate = LocalDateTime.now();
     
-    
-    /**
-     * getId
-     *
-     * @return id Integer
-     */
     public Integer getId()
     {
         return id;
     }
 
-    
-    /**
-     * getUser
-     *
-     * @return user User
-     */
     public User getUser()
     {
         return user;
     }
 
-    
-    /**
-     * getEvent
-     *
-     * @return event Event
-     */
     public Event getEvent()
     {
         return event;
     }
 
-    
-    /**
-     * getState
-     *
-     * @return state RegistrationState
-     */
     public RegistrationState getState()
     {
         return state;
     }
 
-    
-    /**
-     * setId
-     *
-     * @param id Integer
-     */
     public void setId( Integer id )
     {
         this.id = id;
     }
 
-    
-    /**
-     * setUser
-     *
-     * @param user User
-     */
     public void setUser( User user )
     {
         this.user = user;
     }
 
-    
-    /**
-     * setEvent
-     *
-     * @param event Event
-     */
     public void setEvent( Event event )
     {
         this.event = event;
     }
 
-    
-    /**
-     * setState
-     *
-     * @param state RegistrationState
-     */
     public void setState( RegistrationState state )
     {
         this.state = state;
     }
 
-
-    
-    /**
-     * getRegisterDate
-     *
-     * @return registerDate LocalDateTime
-     */
     public LocalDateTime getRegisterDate()
     {
         return registerDate;
     }
 
-
-    
-    /**
-     * setRegisterDate
-     *
-     * @param registerDate LocalDateTime
-     */
     public void setRegisterDate( LocalDateTime registerDate )
     {
         this.registerDate = registerDate;
